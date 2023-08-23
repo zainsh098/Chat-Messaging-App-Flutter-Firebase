@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
 
@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
                     size: 80,
                     color: Colors.grey.shade800,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
 
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                     'Welcome back you\'ve been missed',
                     style: TextStyle(fontSize: 16),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   // email textfield
@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                       controller: emailController,
                       hintText: 'Email',
                       obscureText: false),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   // passaword textfield
@@ -61,12 +61,26 @@ class _LoginPageState extends State<LoginPage> {
 
                   // signin button
 
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   MyButton(callback: () {
 
-                  }, text: "SIGN IN")
+                  }, text: "SIGN IN"),
+                  const SizedBox(height: 5,),
+                 Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [const Text('Not member ?'),
+                      TextButton(onPressed: () {
+                        
+                      }, child: const Text('Register Now',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                      ))
+                    
+                    
+                    ],
+                    
+                  ),
 
                   // not  a member? register now
                 ],
