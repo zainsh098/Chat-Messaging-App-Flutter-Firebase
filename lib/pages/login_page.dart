@@ -1,7 +1,9 @@
 import 'package:chat_messaging_app/components/my_button.dart';
 import 'package:chat_messaging_app/components/my_text_field.dart';
 import 'package:chat_messaging_app/pages/register_page.dart';
+import 'package:chat_messaging_app/services/auth/auth_services.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,15 +16,30 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void  Signin()
-  {
+  Future<void>  signIn()  async {
+//get the auth services
+
+    final authService = Provider.of<AuthService>(context, listen: false);
+    try {
+      await authService.signInWithEmailandPassword(
+          emailController.text,
+          passwordController.text);
 
 
 
+  }catch(e)
+    {
 
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
 
+        content: Text(e.toString()),
 
+    ));
+
+    }
   }
+
+
 
 
 
@@ -81,6 +98,8 @@ class _LoginPageState extends State<LoginPage> {
                     height: 40,
                   ),
                   MyButton(callback: () {
+
+                    signIn();
 
 
 
