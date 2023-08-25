@@ -1,28 +1,20 @@
-import 'package:chat_messaging_app/components/my_button.dart';
-import 'package:chat_messaging_app/components/my_text_field.dart';
-import 'package:chat_messaging_app/pages/register_page.dart';
+import 'package:chat_messaging_app/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+import '../components/my_button.dart';
+import '../components/my_text_field.dart';
+
+
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
-  void  Signin()
-  {
-
-
-
-
-
-
-  }
 
 
 
@@ -54,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
 
                   //Welcome back message
                   const Text(
-                    'Welcome back you\'ve been missed',
+                    'Lets create and account for you!',
                     style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
 
                   ),
@@ -75,6 +67,13 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'Password',
                       obscureText: true),
 
+                  const SizedBox(height: 40,),
+
+                  MyTextField(
+                      controller: passwordController,
+                      hintText: 'Confirm Password',
+                      obscureText: true),
+
                   // signin button
 
                   const SizedBox(
@@ -82,25 +81,22 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   MyButton(callback: () {
 
-
-
-                  }, text: "SIGN IN"),
+                  }, text: "SIGN Up"),
                   const SizedBox(height: 5,),
-                 Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [const Text('Not member ?'),
+                    children: [const Text('Already a member ?'),
                       TextButton(onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
 
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterPage(),));
+
+                      }, child: const Text('Login now',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ))
 
 
-                      }, child: const Text('Register Now',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                      )),
-                    
-                    
                     ],
-                    
+
                   ),
 
                   // not  a member? register now
