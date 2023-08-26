@@ -74,12 +74,7 @@ class _LoginPageState extends State<LoginPage> {
 
                   const SizedBox(
                     height: 40,
-                  ),
-            Consumer<AuthService>(builder: (context, value, child) {
-              return     MyButton(
-                  callback: () {
-                          provider.signIn(context);
-                  },
+
                   text: "SIGN IN");
             },),
                   const SizedBox(
