@@ -16,32 +16,22 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  Future<void>  signIn()  async {
+  Future<void> signIn() async {
 //get the auth services
 
     final authService = Provider.of<AuthService>(context, listen: false);
     try {
       await authService.signInWithEmailandPassword(
-          emailController.text,
-          passwordController.text);
+          emailController.text, passwordController.text);
 
 
 
-  }catch(e)
-    {
-
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(e.toString()),
-
-    ));
-
+      ));
     }
   }
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                   //Welcome back message
                   const Text(
                     'Welcome back you\'ve been missed',
-                    style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
-
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     height: 40,
@@ -97,29 +86,33 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 40,
                   ),
-                  MyButton(callback: () {
-
-                    signIn();
-
-
-
-                  }, text: "SIGN IN"),
-                  const SizedBox(height: 5,),
-                 Row(
+                Consumer(builder: (context, value, child) {
+                 return MyButton(
+                      callback: () {
+                        signIn();
+                      },
+                      text: "SIGN IN");
+                },),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [const Text('Not member ?'),
-                      TextButton(onPressed: () {
-
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterPage(),));
-
-
-                      }, child: const Text('Register Now',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                      )),
-                    
-                    
+                    children: [
+                      const Text('Not member ?'),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => RegisterPage(),
+                                ));
+                          },
+                          child: const Text(
+                            'Register Now',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )),
                     ],
-                    
                   ),
 
                   // not  a member? register now

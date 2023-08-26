@@ -21,15 +21,15 @@ class _RegisterPageState extends State<RegisterPage> {
   void signUp() async {
 
     if (passwordController.text != ConfirmpasswordController.text) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Password do not match"),
       ));
     }
-    final authService = Provider.of<AuthService>(context);
+    final authService = Provider.of<AuthService>(context,listen: false);
     try {
       await authService.signUpWithEmailandPassword(
           emailController.text, passwordController.text);
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text('DONE')));
 
     } catch (e) {
@@ -104,8 +104,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   MyButton(
                       callback: () {
                         signUp();
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                            content: Text('DONE')));
                       },
-                      text: "SIGN Up"),
+                      text: "SIGN UP"),
                   const SizedBox(
                     height: 5,
                   ),
@@ -118,7 +120,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => LoginPage(),
+                                  builder: (context) => const LoginPage(),
                                 ));
                           },
                           child: const Text(
