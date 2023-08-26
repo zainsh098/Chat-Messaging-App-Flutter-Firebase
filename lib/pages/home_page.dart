@@ -1,10 +1,12 @@
-import 'dart:html';
+
 
 import 'package:chat_messaging_app/services/auth/auth_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'chat_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -71,16 +73,26 @@ class _HomePageState extends State<HomePage> {
 
     if (_firebaseAuth.currentUser!.email != data['email']) {
       return ListTile(
-        title: data['email'],
+        title: Text(data['email']),
         onTap: () {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ChatPage(),
+                builder: (context) => ChatPage(receiverUserEmail: data['email'],
+                receiverUserId: data['uid']),
               ));
         },
       );
     }
-    ;
+    else{
+      return Container(
+
+
+      );
+
+
+
+    }
+
   }
 }

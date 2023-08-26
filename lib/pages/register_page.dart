@@ -1,3 +1,5 @@
+
+
 import 'package:chat_messaging_app/pages/login_page.dart';
 import 'package:chat_messaging_app/services/auth/auth_services.dart';
 import 'package:flutter/material.dart';
@@ -32,11 +34,13 @@ class _RegisterPageState extends State<RegisterPage> {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text('DONE')));
 
+
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(e.toString()),
       ));
     }
+
   }
 
   @override
@@ -104,8 +108,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   MyButton(
                       callback: () {
                         signUp();
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text('DONE')));
+
                       },
                       text: "SIGN UP"),
                   const SizedBox(
