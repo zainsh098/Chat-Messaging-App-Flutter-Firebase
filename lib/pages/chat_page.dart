@@ -1,3 +1,4 @@
+import 'package:chat_messaging_app/components/chat_bubble.dart';
 import 'package:chat_messaging_app/components/my_text_field.dart';
 import 'package:chat_messaging_app/services/chat/chat_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -118,8 +119,9 @@ alignment: alignment,
           children: [
 
             Text(data['senderEmail']),
+            ChatBubble(message: data['message']),
 
-            Text(data['message']),
+          
 
 
           ],
