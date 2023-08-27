@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ChatBubble extends StatelessWidget {
   final String message;
@@ -48,6 +49,5 @@ class ChatEmailBubble extends StatelessWidget {
     );
   }
 }
-
 
 
