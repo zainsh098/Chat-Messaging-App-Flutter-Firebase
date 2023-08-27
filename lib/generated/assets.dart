@@ -6,6 +6,7 @@ class Assets {
   static const String authAuthServices = 'lib/services/auth/auth_services.dart';
   static const String authLoginOrSignup = 'lib/services/auth/login_or_signup.dart';
   static const String chatChatServices = 'lib/services/chat/chat_services.dart';
+  static const String componentsChatBubble = 'lib/components/chat_bubble.dart';
   static const String componentsMyButton = 'lib/components/my_button.dart';
   static const String componentsMyTextField = 'lib/components/my_text_field.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';

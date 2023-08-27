@@ -16,12 +16,29 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  Future<void> signIn( ) async {
+//get the auth services
 
+    final authService = Provider.of<AuthService>(context , listen: false);
+    try {
+      await authService.signInWithEmailandPassword(
+          emailController.text, passwordController.text);
+
+
+
+    } catch (e) {
+      ScaffoldMessenger.of(context ).showSnackBar(SnackBar(
+        content: Text(e.toString()),
+      ));
+
+    }
+
+  }
 
 
   @override
   Widget build(BuildContext context) {
-    final provider=Provider.of<AuthService>(context);
+    final provider=Provider.of<AuthService>(context,listen: false);
 
 
     return Scaffold(
@@ -78,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
             Consumer<AuthService>(builder: (context, value, child) {
               return     MyButton(
                   callback: () {
-                          provider.signIn(context);
+                          signIn();
                   },
                   text: "SIGN IN");
             },),

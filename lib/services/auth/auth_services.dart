@@ -17,24 +17,7 @@ class AuthService extends ChangeNotifier {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  Future<void> signIn( BuildContext context) async {
-//get the auth services
 
-    final authService = Provider.of<AuthService>(context , listen: false);
-    try {
-      await authService.signInWithEmailandPassword(
-          emailController.text, passwordController.text);
-
-
-
-    } catch (e) {
-      ScaffoldMessenger.of(context ).showSnackBar(SnackBar(
-        content: Text(e.toString()),
-      ));
-
-    }
-    notifyListeners();
-  }
 
 
 
@@ -88,6 +71,10 @@ class AuthService extends ChangeNotifier {
   }
 
   //
+
+
+
+
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
