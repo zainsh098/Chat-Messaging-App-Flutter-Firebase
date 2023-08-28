@@ -15,7 +15,7 @@ MyChat is a user-friendly messaging app that allows users to send messages to ea
 ## Getting Started
 
 
-
+..
 ### Installation
 
 1. Clone the repository:
