@@ -21,4 +21,4 @@ MyChat is a user-friendly messaging app that allows users to send messages to ea
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/zainsh098/chat_messaging_app
+   git clone https://github.com/zainsh098/Chat-Messaging-App-Flutter-Firebase
